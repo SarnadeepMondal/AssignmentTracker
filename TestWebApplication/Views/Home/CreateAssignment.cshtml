@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewData["Title"] = "CreateAssignment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="clm-md-4 col-sm-4 col-xs-12"></div>
+        <div class="clm-md-4 col-sm-4 col-xs-12">
+            <div class="panel panel-primary">
+                <div class="panel-body">
+                    <form method="POST" role="form">
+                        <div class="form-group">
+                            <h2>Create Assignment</h2>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Assignment name</label>
+                            <input id="nameassignment" type="text" maxlength="30" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Assignment Description</label>
+                            <input id="desassignment" type="text" maxlength="30" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputFile">Browse Assignment..</label>
+                            <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Duration</label>
+                            <input id="duration" type="text" maxlength="30" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <button id="createassignmentt" type="submit" class="btn btn-success btn-block">Create Assignment</button>
+                        </div>
+
+                    </form>
+
+            </div>
+            </div>
+            <div class="clm-md-4 col-sm-4 col-xs-12"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<User>
+@{
+    ViewData["Title"] = "AdminApproved";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Admin Approved Page</h1>
+<div class="text-center">
+    <div class="container">
+    </div>
+    <div class="container">
+        <div class="col-12">
+            <h2 class="text-left">User List </h2>
+        </div>
+        <p> </p>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>User Id</th>
+                    <th>Name</th>
+                    <th>Email-Id</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model == null)
+                {
+                    <tr> <td colspan="3" class="text-center"> No data found.</td></tr>
+                }
+                @foreach (var p in Model)
+                {
+                    <tr>
+                        <td>@p.id</td>
+                        <td>@p.name</td>
+                        <td>@p.email</td>
+                        <th>
+                            <a asp-action="Delete" asp-route-id="" class="btn btn-danger a-btn-slide-text">
+                                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                                <span><strong>Reject</strong></span>
+                            </a>
+                            <a asp-action="Approved" asp-route-id=" " class="btn btn-success a-btn-slide-text">
+                                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                                <span><strong>Approve</strong></span>
+                            </a>
+                        </th>
+                    </tr>
+                }
+                </tbody>
+        </table>
+    </div>
+</div>
+

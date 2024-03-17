@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewData["Title"] = "Signup_as_Student";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .input-validation-error {
+        border-color: red;
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="clm-md-4 col-sm-4 col-xs-12"></div>
+        <div class="clm-md-4 col-sm-4 col-xs-12">
+            <div class="panel panel-primary">
+                <div class="panel-body">
+                    <form method="POST" role="form">
+                        <div class="form-group">
+                            <h2>Sign-up as Student</h2>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Username</label>
+                            <input id="signupName" type="text" maxlength="50" class="form-control">
+                            <span class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="signupEmail">Email</label>
+                            <input id="signupEmail" type="email" maxlength="50" class="form-control">
+                            <span class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="signupPassword">Password</label>
+                            <input id="signupPassword" type="password" maxlength="25" class="form-control" placeholder="at least 6 characters" length="40">
+                            <span class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="signupPasswordagain">Confirm Password</label>
+                            <input id="signupPasswordagain" type="password" maxlength="25" class="form-control">
+                            <span asp-for="password" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="signupDepartment">Department</label>
+                            <input id="signupDepartment" type="text" maxlength="25" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="signupBranch">Branch</label>
+                            <input id="signupBranch" type="password" maxlength="25" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="signupSemester">Semester</label>
+                            <input id="signupSemester" type="text" maxlength="25" class="form-control" >
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="signupPhoneNumber">Phone Number</label>
+                            <input id="signupPhoneNumber" type="tel" maxlength="25" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <button id="signup" type="submit" class="btn btn-info btn-block">Sign up</button>
+                        </div>
+                        <p class="form-group">By creating an account, you agree to our <a href="#">Terms of Use</a> and our <a href="#">Privacy Policy</a>.</p>
+                        <hr>
+                        <p></p>Already have an account? <a href="Sign">Sign in</a>
+                    </form>
+                </div>
+            </div>
+            <div class="clm-md-4 col-sm-4 col-xs-12"></div>
+        </div>
+    </div>
+</div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+

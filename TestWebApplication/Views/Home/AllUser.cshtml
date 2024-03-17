@@ -1,0 +1,72 @@
+﻿@model IEnumerable<User>
+@{
+    ViewData["Title"] = "AllUser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+}
+
+<h1>All User</h1>
+<div class="text-center">
+
+    <div class="container">
+        <div id="piechart"></div>
+    </div>
+    <div class="container">
+        <div class="col-12">
+            <h2 class="text-left">User List </h2>
+        </div>
+        <div class="text-right">
+            <span>
+                <input type="text" placeholder="Search.." name="search">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </span>
+            <span>
+                <button type="button" class="btn btn-success">+ Add New user</button>
+            </span>
+        </div>
+
+        <p> </p>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>User Id</th>
+                    <th>Name</th>
+                    <th>Email-Id</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model == null)
+                {
+                    <tr> <td colspan="3" class="text-center"> No data found.</td></tr>
+                }
+                @foreach (var p in Model)
+                {
+                    <tr>
+                        <td>@p.id</td>
+                        <td>@p.name</td>
+                        <td>@p.email.</td>
+                        <th>
+                            <a asp-action="Update" asp-route-id="@p.id" class="btn btn-primary a-btn-slide-text">
+                                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                                <span><strong>Edit</strong></span>
+                            </a>
+                            <a asp-action="Delete" asp-route-id="@p.id" class="btn btn-danger a-btn-slide-text">
+                                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                                <span><strong>Delete</strong></span>
+                            </a>
+                            <a asp-action="Block" asp-route-id="@p.id" class="btn btn-warning a-btn-slide-text">
+                                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                                <span><strong>Block</strong></span>
+                            </a>
+
+                        </th>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+
+    </div>
+</div>
+

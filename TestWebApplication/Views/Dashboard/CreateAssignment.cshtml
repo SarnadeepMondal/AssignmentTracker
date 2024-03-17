@@ -1,0 +1,93 @@
+﻿
+@model Assignment
+
+@{
+    ViewData["Title"] = "CreateAssignment";
+    Layout = "~/Views/Shared/_layoutAL_cshtml.cshtml";
+}
+
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+    $(function () {
+        $("#InputSubmissionDate").datepicker();
+    });
+</script>
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Create Assignment</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a asp-controller="Dashboard" asp-action="AssignAssignment">Move to Assign Assignment</a></li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- left column -->
+            <div class="col-md-1">
+
+            </div>
+
+            <div class="col-md-10">
+                <!-- general form elements -->
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Create Assignment</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <form method="post" enctype="multipart/form-data">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="InputAssignmentName">Assignment Name</label>
+                                <input type="text" class="form-control" asp-for="AssignmentName" id="InputAssignmentName" placeholder="Enter Assignment Name">
+                            </div>
+                            <span asp-validation-for="AssignmentName" class="text-danger"></span>
+                            <div class="form-group">
+                                <label for="InputAssignmentDescription">Assignment Description</label>
+                                <input type="text" class="form-control" asp-for="AssignmentDescription" id="InputAssignmentDescription" placeholder="Enter Assignment Description">
+                            </div>
+                            <span asp-validation-for="AssignmentDescription" class="text-danger"></span> AssignmentName
+
+                            <div class="form-group">
+                                <label for="InputAssignment">Upload the assignment: &nbsp;</label>
+                                <input type="file" multiple name="file" />
+                            </div>
+                            <div class="form-group">
+                                <label for="InputSubmissionDate">Submission Date</label>
+                                <input type="text" class="form-control" asp-for="SubmissionDate" id="InputSubmissionDate" placeholder="Enter Submission Date">
+                            </div>
+                            <span asp-validation-for="SubmissionDate" class="text-danger"></span>
+                        </div>
+                        <!-- /.card-body -->
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+                <!-- /.card -->
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
+        <!-- /.row -->
+    </div><!-- /.container-fluid -->
+</section>
+@section Scripts{
+
+    @await Html.PartialAsync("/Views/Shared/_ValidationScriptsPartial.cshtml")
+}

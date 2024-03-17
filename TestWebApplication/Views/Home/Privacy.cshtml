@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Privacy Policy";
+}
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+    google.charts.load('current', { packages: ['map'] });
+</script>
+
+<h1>@ViewData["Title"]</h1>
+
+<div id="container" style="width: 1200px; height: 400px; margin: 0 auto">
+</div>
+
+<script language="JavaScript">
+    function drawChart() {
+        // Define the chart to be drawn.
+        var data = google.visualization.arrayToDataTable([
+            ['Lat', 'Long', 'Name'],
+            [23.452738, 87.464119, 'Rajbandh']
+        ]);
+
+        // Set chart options
+        var options = {
+            showTip: true,
+            icons: {
+                default: {
+                    normal: 'http://icons.iconarchive.com/icons/icons-land/vista-map-markers/48/Map-Marker-Ball-Azure-icon.png',
+                    selected: 'http://icons.iconarchive.com/icons/icons-land/vista-map-markers/48/Map-Marker-Ball-Right-Azure-icon.png'
+                }
+            }
+        };
+
+        // Instantiate and draw the chart.
+        var chart = new google.visualization.Map(document.getElementById('container'));
+        chart.draw(data, options);
+    }
+    google.charts.setOnLoadCallback(drawChart);
+</script>

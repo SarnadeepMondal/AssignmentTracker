@@ -1,0 +1,77 @@
+﻿@model IEnumerable<User> 
+@{
+    ViewData["Title"] = "AllUser";
+    Layout = "~/Views/Shared/_layoutAL_cshtml.cshtml";
+}
+
+<!-- /.card -->
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">User List</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>User Id</th>
+                    <th>Name</th>
+                    <th>Email-Id</th>
+                    <th>User Type</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model == null)
+                {
+                    <tr> <td colspan="3" class="text-center"> No data found.</td></tr>
+                }
+                @foreach (var p in Model)
+                {
+            <tr>
+                <td>@p.id</td>
+                <td>@p.name</td>
+                <td>@p.email</td>
+                <td>@p.UserType</td>
+                <th>
+                    <a asp-action="Update" asp-route-id="@p.id" class="btn btn-primary a-btn-slide-text">
+                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                        <span><strong>Edit</strong></span>
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@p.id" class="btn btn-danger a-btn-slide-text">
+                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                        <span><strong>Delete</strong></span>
+                    </a>
+                </th>
+            </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>
+<!-- /.card -->
+<!-- jQuery -->
+<!-- DataTables -->
+<script src="~/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="~/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="~/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="~/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<!-- page script -->
+<script>
+    $(function () {
+        $("#example1").DataTable({
+            "responsive": true,
+            "autoWidth": false,
+        });
+        $('#example2').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+        });
+    });</script>

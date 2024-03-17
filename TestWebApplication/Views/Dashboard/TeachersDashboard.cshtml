@@ -1,0 +1,92 @@
+﻿@model IEnumerable<TestWebApplication.Models.ViewModel.AssignmentViewModel>
+
+@{
+    ViewData["Title"] = "TeachersDashboard";
+    Layout = "~/Views/Shared/_layoutAL_cshtml.cshtml";
+}
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Assignment Submitted by Students</h3>
+    </div>
+    <div class="card-header">
+        <div class="row">
+            <div class="col-6">
+        <label for="InputSemester">Search by semester</label>
+        <select class="form-control" id="select" name="ChooseSemester" data-live-search="true">
+            <option value="select option">Choose Semester</option>
+            <option value="1st">1st</option>
+            <option value="2nd">2nd</option>
+            <option value="3rd">3rd</option>
+            <option value="4th">4th</option>
+            <option value="5th">5th</option>
+            <option value="6th">6th</option>
+            <option value="7th">7th</option>
+            <option value="8th">8th</option>
+        </select>
+    </div>
+   </div>
+</div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Student Id</th>
+                    <th>Name</th>
+                    <th>Department</th>
+                    <th>Branch</th>
+                    <th>Semester</th>
+                    <th>Assignment</th>
+                    <th>Submited Doc</th>
+                  
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model == null)
+                    {
+                        <tr> <td colspan="3" class="text-center"> No data found.</td></tr>
+                    }
+                @foreach (var p in Model)
+                    {
+                <tr>
+                    <td>@p.StudentId</td>
+                    <td>@p.Name</td>
+                    <td>@p.Department</td>
+                    <td>@p.Branch</td>
+                    <td>@p.Semester</td>
+                    <td>@p.Assignment</td>
+                    <th>
+                        <a href="../Dashboard/ViewerNewTab1?filename=@p.DocName"  data-toggle="Submited Doc" title="Click here to View the document" target="_blank">@p.DocName  </a>
+                    </th>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>
+<!-- /.card -->
+<!-- jQuery -->
+<!-- DataTables -->
+<script src="~/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="~/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="~/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="~/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<!-- page script -->
+<script>
+    $(function () {
+        $("#example1").DataTable({
+            "responsive": true,
+            "autoWidth": false,
+        });
+        $('#example2').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+        });
+    });</script>
+
